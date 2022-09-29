@@ -1,4 +1,8 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+/node_modules
+/.env.local
+/.umirc.local.ts
+/config/config.local.ts
+/src/.umi
+/src/.umi-production
+/src/.umi-test
+/dist
