@@ -16,22 +16,22 @@ export default function Intro() {
         <Card
           image={StorageImage}
           title="Permanet Storage"
-          content="privacy with data encryption is concern from the first day we were building the protocol"
+          content="Allow users and developers store data forever, no need to worry about data lost."
         />
         <Card
           image={PrivacyImage}
           title="Build in Privacy"
-          content="privacy with data encryption is concern from the first day we were building the protocol"
+          content="All content or database tables are encrypted by user’s own private key  and can be only accessed by owner or the one who gets authority from the owner in data rights management system"
         />
-        <Card
+        {/* <Card
           image={DataImage}
           title="Data Analyze"
           content="privacy with data encryption is concern from the first day we were building the protocol"
-        />
+        /> */}
         <Card
           image={AqlImage}
           title="SQL Friendly"
-          content="privacy with data encryption is concern from the first day we were building the protocol"
+          content="A classic-relational-database alike storage system but in decentralized way. Developer  is able to use db3  as easy as sqlite or mysql through our dedicate SDK."
         />
       </div>
     </div>

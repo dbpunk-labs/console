@@ -1,5 +1,5 @@
 import styles from "./detail.less";
-import detailImage from "../assets/detail.png";
+import detailImage from "../assets/intro.png";
 
 export default function Detail() {
   return (
