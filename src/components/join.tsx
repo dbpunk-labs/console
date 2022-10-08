@@ -9,10 +9,10 @@ export default function Join() {
   return (
     <div className={styles.join}>
       <div className={styles.joinTitle}>
-        Join DB3 if you use sqlLite\mysql\Oracle to save
+        Join DB3 if you use Mysql\Oracle to save user data
       </div>
       <div className={styles.joinSubtitle}>
-        use DB3 in stead to make your web app more decentralized and more
+        Those are centralized. Use DB3 in stead to make your web app more decentralized and more
         concerned about your privacy
       </div>
       <div className={styles.listWrapper}>

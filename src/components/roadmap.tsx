@@ -82,8 +82,8 @@ export default function Roadmap() {
 
       <div className={styles.timelineContent}>
         <div className={`${styles.contentWrapper} ${styles.first}`}>
-          <div className={styles.contentItem}>• Test network</div>
-          <div className={styles.contentItem}>• Advanced SQL</div>
+          <div className={styles.contentItem}>• SQL supported test network</div>
+          {/* <div className={styles.contentItem}>• Advanced SQL</div> */}
           <div className={styles.contentItem}>• Gas consumption mechanism</div>
         </div>
 

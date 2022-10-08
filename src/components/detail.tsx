@@ -17,22 +17,21 @@ export default function Detail() {
               Main chain
             </div>
             <div className={styles.itemContent}>
-              The main chain is where consensus block produced, 
-              it is the key role of maintain the safety of the whole system.
+              The main chain is the key role of maintain the safety of the whole system.
               Mainly responsible for database Miner and the user’s contract
               matching, transaction settlement and anti-cheating matters{" "}
             </div>
           </div>
           <div className={`${styles.detailItem} ${styles.detailItemActivited}`}>
-            <div className={styles.itemTitle}>Dedicated Compute Chain</div>
+            <div className={styles.itemTitle}>Storage Chard Chain</div>
             <div className={styles.itemContent}>
               Each account will have a separate shard chain. 
-              Shard chain is where database file actually stored and  
+              Shard chain is where database file actually stored and 
               responsible for the file permanent storage.{" "}
             </div>
           </div>
           <div className={styles.detailItem}>
-            <div className={styles.itemTitle}>Globally Sync Data</div>
+            <div className={styles.itemTitle}>Database Virtual Machine</div>
             <div className={styles.itemContent}>
               Database Virtual Machine is where smart contract executed  
               and the contract defines how the app would use users data. 

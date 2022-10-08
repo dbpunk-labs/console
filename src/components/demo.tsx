@@ -5,7 +5,7 @@ export default function Demo() {
   return (
     <div className={styles.demo}>
       <div className={styles.demoTitle}>
-        Try those fully decentralized dApps
+        Empower Apps to Be Fully Decentralized
       </div>
       <div className={styles.codeWrapper}>
         <img src={CodeImage} />
