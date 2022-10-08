@@ -114,9 +114,13 @@ export default function Banner() {
               fill="white"
             />
           </svg>
-          Join to build the future
+          Join to build together
         </a>
-        <div className={styles.demoLink}>Request a Demo {">"}</div>
+        <div className={styles.demoLink}>
+         <a  href="https://demo.db3.network"  target="_blank">
+           Try Demo {">"}
+         </a>
+        </div>
       </div>
       {/* <div className={styles.greatTeamWrapper}>
         <div className={styles.greatTeam}>
