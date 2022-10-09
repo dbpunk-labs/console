@@ -10,7 +10,7 @@ export default function Intro() {
   return (
     <div className={styles.intro}>
       <div className={styles.introTitle}>
-        The database in WEB3 should be like this
+        Database In WEB3 Should Be Like This
       </div>
       <div className={styles.introList}>
         <Card
@@ -21,7 +21,7 @@ export default function Intro() {
         <Card
           image={PrivacyImage}
           title="Build in Privacy"
-          content="All content or database tables are encrypted by user’s own private key  and can be only accessed by owner or the one who gets authority from the owner in data rights management system"
+          content="All content or database tables are encrypted by user’s own private key  and can be only accessed by owner or the one who gets authority from the owner"
         />
         {/* <Card
           image={DataImage}
