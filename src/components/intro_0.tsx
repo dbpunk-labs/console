@@ -13,7 +13,7 @@ export default function Intro_0() {
   return (
     <div className={styles.intro}>
       <div className={styles.introTitle}>
-        What is ture data sovereignty in WEB3
+        User Data Sovereignty In WEB3
       </div>
       <div className={styles.introList}>
         <Card
