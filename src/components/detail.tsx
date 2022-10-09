@@ -4,7 +4,7 @@ import detailImage from "../assets/intro.png";
 export default function Detail() {
   return (
     <div className={styles.detail}>
-      <div className={styles.detailTitle}>How does DB3 network works</div>
+      <div className={styles.detailTitle}>How Does DB3 Works</div>
       <div className={styles.detailContent}>
         <div className={styles.detailImage}>
           <div className={styles.detailImageWrapper}>

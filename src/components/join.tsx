@@ -9,7 +9,7 @@ export default function Join() {
   return (
     <div className={styles.join}>
       <div className={styles.joinTitle}>
-        Join DB3 if you use Mysql\Oracle to save user data
+        Join DB3 If You Use Mysql\Oracle Save User Data
       </div>
       <div className={styles.joinSubtitle}>
         Those are centralized. Use DB3 in stead to make your web app more decentralized and more

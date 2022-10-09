@@ -10,7 +10,7 @@ export default function Intro() {
   return (
     <div className={styles.intro}>
       <div className={styles.introTitle}>
-        The database in WEB3 should be like this
+        Database In WEB3 Should Be Like This
       </div>
       <div className={styles.introList}>
         <Card
