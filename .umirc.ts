@@ -4,4 +4,10 @@ export default {
     process.env.NODE_ENV === "production"
       ? ["babel-plugin-dynamic-import-node"]
       : [],
+  links: [
+    {
+      rel: "icon",
+      href: "/favicon.png",
+    },
+  ],
 };
