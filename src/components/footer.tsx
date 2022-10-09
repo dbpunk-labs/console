@@ -34,36 +34,86 @@ export default function Footer() {
             fill="#4D49FF"
           />
         </svg>
+        <div className={styles.logoTitle}>A decentralized SQL database</div>
       </div>
       <div className={styles.copyright}>
-        Copyright @ DB3 Team | All Rights Reserved
+        <div className={styles.copyrightText}>
+          Copyright @ DB3 Team | All Rights Reserved
+        </div>
       </div>
-      <div className={styles.links}>
-        <a className={styles.linksItem} href="https://twitter.com/db3network" target="_blank">
-          <img src={twitterImage} />
-        </a>
-        <a className={styles.linksItem} href="https://github.com/dbpunk-labs/db3" target="_blank">
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g opacity="0.48">
-              <path
-                d="M13 0C5.8175 0 0 5.82075 0 13C0 18.7449 3.7245 23.6167 8.88875 25.3337C9.53875 25.4562 9.77708 25.0542 9.77708 24.7087C9.77708 24.3999 9.76625 23.582 9.76083 22.4987C6.14467 23.283 5.382 20.7545 5.382 20.7545C4.7905 19.2541 3.93575 18.8533 3.93575 18.8533C2.75817 18.0473 4.02675 18.0635 4.02675 18.0635C5.33217 18.1545 6.01792 19.4025 6.01792 19.4025C7.17708 21.3904 9.061 20.8162 9.80417 20.4837C9.92117 19.643 10.2559 19.0699 10.6275 18.7449C7.74042 18.4199 4.706 17.3019 4.706 12.3208C4.706 10.9016 5.20975 9.74242 6.04392 8.83242C5.89767 8.50417 5.45892 7.1825 6.15767 5.39175C6.15767 5.39175 7.24642 5.04292 9.73267 6.72425C10.7727 6.435 11.8777 6.292 12.9827 6.2855C14.0877 6.292 15.1927 6.435 16.2327 6.72425C18.7027 5.04292 19.7914 5.39175 19.7914 5.39175C20.4902 7.1825 20.0514 8.50417 19.9214 8.83242C20.7502 9.74242 21.2539 10.9016 21.2539 12.3208C21.2539 17.3149 18.2152 18.4145 15.3227 18.7341C15.7777 19.1241 16.2002 19.9214 16.2002 21.1391C16.2002 22.8789 16.1839 24.2764 16.1839 24.6989C16.1839 25.0402 16.4114 25.4464 17.0777 25.3164C22.2788 23.6112 26 18.7362 26 13C26 5.82075 20.1793 0 13 0Z"
-                fill="white"
-              />
-            </g>
-          </svg>
-        </a>
-        <a className={styles.linksItem} href="" target="_blank">
-          <img src={youtubeImage} />
-        </a>
-        <a className={styles.linksItem} href="https://discord.gg/sgY2bbFCzr " target="_blank">
-          <img src={discordImage} />
-        </a>
+      <div className={styles.footerNavs}>
+        <div className={styles.navItem}>
+          <div className={styles.navTitle}>Developer</div>
+          <div className={styles.navContent}>
+            <div className={styles.navLink}>
+              <a target="_blank" href="https://github.com/dbpunk-labs/db3">
+                gitHub
+              </a>
+            </div>
+            <div className={styles.navLink}>
+              <a
+                target="_blank"
+                href="https://github.com/dbpunk-labs/db3/tree/main/docs"
+              >
+                DOCs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.navItem}>
+          <div className={styles.navTitle}>Blog</div>
+          <div className={styles.navContent}>
+            <div className={styles.navLink}>
+              <a target="_blank" href="https://medium.com/@db3_network">
+                Medium
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.navItem}>
+          <div className={styles.navTitle}>Contact</div>
+          <div className={styles.navContent}>
+            <a
+              className={styles.navLinkImg}
+              href="https://twitter.com/db3network"
+              target="_blank"
+            >
+              <img src={twitterImage} />
+            </a>
+            <a
+              className={styles.navLinkImg}
+              href="https://github.com/dbpunk-labs/db3"
+              target="_blank"
+            >
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g opacity="0.48">
+                  <path
+                    d="M13 0C5.8175 0 0 5.82075 0 13C0 18.7449 3.7245 23.6167 8.88875 25.3337C9.53875 25.4562 9.77708 25.0542 9.77708 24.7087C9.77708 24.3999 9.76625 23.582 9.76083 22.4987C6.14467 23.283 5.382 20.7545 5.382 20.7545C4.7905 19.2541 3.93575 18.8533 3.93575 18.8533C2.75817 18.0473 4.02675 18.0635 4.02675 18.0635C5.33217 18.1545 6.01792 19.4025 6.01792 19.4025C7.17708 21.3904 9.061 20.8162 9.80417 20.4837C9.92117 19.643 10.2559 19.0699 10.6275 18.7449C7.74042 18.4199 4.706 17.3019 4.706 12.3208C4.706 10.9016 5.20975 9.74242 6.04392 8.83242C5.89767 8.50417 5.45892 7.1825 6.15767 5.39175C6.15767 5.39175 7.24642 5.04292 9.73267 6.72425C10.7727 6.435 11.8777 6.292 12.9827 6.2855C14.0877 6.292 15.1927 6.435 16.2327 6.72425C18.7027 5.04292 19.7914 5.39175 19.7914 5.39175C20.4902 7.1825 20.0514 8.50417 19.9214 8.83242C20.7502 9.74242 21.2539 10.9016 21.2539 12.3208C21.2539 17.3149 18.2152 18.4145 15.3227 18.7341C15.7777 19.1241 16.2002 19.9214 16.2002 21.1391C16.2002 22.8789 16.1839 24.2764 16.1839 24.6989C16.1839 25.0402 16.4114 25.4464 17.0777 25.3164C22.2788 23.6112 26 18.7362 26 13C26 5.82075 20.1793 0 13 0Z"
+                    fill="white"
+                  />
+                </g>
+              </svg>
+            </a>
+            <a className={styles.navLinkImg} href="" target="_blank">
+              <img src={youtubeImage} />
+            </a>
+            <a
+              className={styles.navLinkImg}
+              href="https://discord.gg/sgY2bbFCzr "
+              target="_blank"
+            >
+              <img src={discordImage} />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

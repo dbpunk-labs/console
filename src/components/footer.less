@@ -26,10 +26,27 @@
   left: 92px;
   top: 30px;
 }
+.logoTitle {
+  position: absolute;
+  width: 300px;
+  left: 0ox;
+  top: 50px;
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  opacity: 0.85;
+}
 
 .copyright {
   position: absolute;
-  left: 92px;
+  width: 100%;
+  text-align: center;
   bottom: 34px;
   font-family: "Roboto Mono";
   font-style: normal;
@@ -40,6 +57,11 @@
   color: #ffffff;
 
   opacity: 0.45;
+  .copyrightText {
+    margin: 0 92px;
+    border-top: 1px solid #ffffff;
+    padding-top: 20px;
+  }
 }
 .links {
   position: absolute;
@@ -53,5 +75,33 @@
   margin-left: 48px;
   img {
     height: 25px;
+  }
+}
+
+.footerNavs {
+  position: absolute;
+  right: 92px;
+  top: 30px;
+  color: #ffffff;
+  display: flex;
+  .navItem {
+    margin-left: 100px;
+  }
+  .navTitle {
+    font-size: 18px;
+    height: 40px;
+  }
+  .navContent {
+    display: flex;
+    .navLink {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .navLinkImg {
+      margin-right: 30px;
+      img {
+        height: 25px;
+      }
+    }
   }
 }

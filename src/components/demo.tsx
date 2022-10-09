@@ -1,5 +1,6 @@
 import styles from "./demo.less";
 import CodeImage from "../assets/code.png";
+import DemoImage from "../assets/demo.png";
 
 export default function Demo() {
   return (
@@ -9,6 +10,9 @@ export default function Demo() {
       </div>
       <div className={styles.codeWrapper}>
         <img src={CodeImage} />
+      </div>
+      <div className={styles.codeWrapper}>
+        <img src={DemoImage} />
       </div>
       <div className={styles.demoList}>
         <div className={styles.demoItem}>Demo</div>

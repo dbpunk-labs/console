@@ -22,7 +22,7 @@ export default function Detail() {
               matching, transaction settlement and anti-cheating matters{" "}
             </div>
           </div>
-          <div className={`${styles.detailItem} ${styles.detailItemActivited}`}>
+          <div className={`${styles.detailItem}`}>
             <div className={styles.itemTitle}>Storage Chard Chain</div>
             <div className={styles.itemContent}>
               Each account will have a separate shard chain. 

@@ -4,7 +4,7 @@ import Intro_0 from "../components/intro_0";
 import Demo from "../components/demo";
 import Detail from "../components/detail";
 import Join from "../components/join";
-import Roadmap from "../components/roadmap";
+import Roadmap from "../components/roadmap2";
 import Footer from "../components/footer";
 
 export default function HomePage() {
