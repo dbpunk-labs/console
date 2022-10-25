@@ -9,6 +9,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "react-player": "^2.11.0",
     "umi": "^4.0.22"
   },
   "devDependencies": {
