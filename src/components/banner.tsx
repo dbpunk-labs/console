@@ -48,7 +48,7 @@ export default function Banner() {
 							<div className={styles.dropitem}>
 								<a
 									target='_blank'
-									href='https://github.com/dbpunk-labs/db3/tree/main/docs'
+									href='https://docs.db3.network/'
 								>
 									DOCs
 								</a>
