@@ -23,12 +23,36 @@ export const ownerAddressAtom = atom<string>({
 	],
 });
 
-export const secretAtom = atom<string | null>({
+export const secretAtom = atom<string>({
 	key: "secretAtom",
-	default: null,
+	default: selector({
+		key: "secretAtom/default",
+		get: () => {
+			return localStorage.getItem("secret_key") as string;
+		},
+	}),
+	effects: [
+		({ onSet }) => {
+			onSet((value) => {
+				localStorage.setItem("secret_key", value);
+			});
+		},
+	],
 });
 
-export const publicKeyAtom = atom<string | null>({
+export const publicKeyAtom = atom<string>({
 	key: "publicKeyAtom",
-	default: null,
+	default: selector({
+		key: "publicKeyAtom/default",
+		get: () => {
+			return localStorage.getItem("public_key") as string;
+		},
+	}),
+	effects: [
+		({ onSet }) => {
+			onSet((value) => {
+				localStorage.setItem("public_key", value);
+			});
+		},
+	],
 });

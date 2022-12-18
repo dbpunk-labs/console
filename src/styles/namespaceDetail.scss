@@ -1,0 +1,9 @@
+.namespace-detail {
+	.ns-collections {
+		display: flex;
+		> div {
+			border: 1px solid #c6c0c0;
+			padding: 7px 20px;
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from "react";
+import React, { memo, useEffect, useMemo, useState } from "react";
 import { Button, Form, Input, Space, Typography, Upload } from "antd";
 import { useRecoilState } from "recoil";
 
@@ -24,30 +24,12 @@ const GeneratorAccount: React.FC<{}> = memo((props) => {
 		setPublicKey(encode(pk));
 		setVisibleAccountInfo(true);
 	}, []);
-	function downloadAccount() {
-		const blob = new Blob([JSON.stringify("keyringJSON")], {
-			type: "application/octet-stream;charset=utf-8",
-		});
-		const jsonurl = URL.createObjectURL(blob);
-		window.open(jsonurl);
-	}
-	function importAccount({ file }) {
-		const reader = new FileReader();
-		reader.onload = function (evt) {
-			// const keyringJson = JSON.parse(evt.target.result);
-			// const restoredPair = keyring.createFromJson(keyringJson);
-			// keyring.addPair(restoredPair, "12345678");
-			// db3.setCurrentAccount(keyring.getPair(keyringJson.address));
-			// setOwnerAddress(keyringJson.address);
-			navigate("/authorization");
-		};
-		reader.readAsText(file.originFileObj);
-		return Promise.resolve();
-	}
 	const navigate = useNavigate();
-	const uploadUrl = URL.createObjectURL(
-		new Blob([], { type: "application/json" }),
-	);
+	useEffect(() => {
+		if (secret) {
+			navigate("/namespace");
+		}
+	}, []);
 	return (
 		<div className='generator-account'>
 			<div className='account-container'>
@@ -68,13 +50,6 @@ const GeneratorAccount: React.FC<{}> = memo((props) => {
 								I’ve already have accout
 							</Button>
 						</div>
-						{/* <Upload
-							action={uploadUrl}
-							showUploadList={false}
-							onChange={importAccount}
-						>
-							<Button>Choose Account</Button>
-						</Upload> */}
 					</>
 				)}
 				{visibleAccountInfo && (
