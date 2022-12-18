@@ -13,6 +13,7 @@ const Collections: React.FC<{}> = memo((props) => {
     const { name: ns_name } = useParams()
     const [visible, setVisible] = useState(false)
     const [docVisible, setDocVisible] = useState(false)
+    const [activeCollectionName, setActiveCollectionName] = useState('')
     const [hash, addCollection] = useAsyncFn(async (collection_name, doc_index) => {
         // create doc_meta
         setVisible(false)
@@ -42,8 +43,8 @@ const Collections: React.FC<{}> = memo((props) => {
     const [insertDocHash, insertDocs] = useAsyncFn(async () => {
         // insertDocs
         setDocVisible(false)
-        console.log(docsInfo)
-    }, [docsInfo])
+        console.log(docsInfo, activeCollectionName)
+    }, [docsInfo, activeCollectionName])
     function onFinish(values: any) {
         const { name, index } = values
         addCollection(name, index)
@@ -62,7 +63,10 @@ const Collections: React.FC<{}> = memo((props) => {
                     {docMetasState.value?.map((item) => (
                         <div
                             key={item.doc_name}
-                            onClick={() => getDocs(item.index)}
+                            onClick={() => {
+                                setActiveCollectionName(item.doc_name)
+                                getDocs(item.index)
+                            }}
                             style={{ padding: '7px 10px', cursor: 'pointer' }}
                         >
                             {item.doc_name}
