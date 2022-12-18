@@ -1,16 +1,34 @@
-import React, { memo, useState } from "react";
+import { useAsyncFn } from "react-use"
+import React, { memo, useState , useMemo} from "react";
 import { Form, Space, Typography, Divider, Input, Button, Switch } from "antd";
+import { DB3, sign, getATestStaticKeypair } from "db3js";
 
 const { Title } = Typography;
 
 const CreateNamespace: React.FC<{}> = memo((props) => {
+	const db3_instance = useMemo(() => new DB3("http://127.0.0.1:26659"), []);
 	const [nsPublic, setNsPublic] = useState<boolean>(false);
+    const [hash, createNamespace] = useAsyncFn(async values => {
+		async function getSign() {
+			const [sk, public_key] = await getATestStaticKeypair();
+			async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
+				return [await sign(data, sk), public_key];
+			} 
+			return _sign;
+		};
+        const _sign = await getSign();
+		const result = await db3_instance.createSimpleNs(values, _sign);
+		return result;
+	}, []);
+
 	function onFinish(values: any) {
-		console.log(values);
+		createNamespace(values);
 	}
+
 	function onChangeNsPublic(checked: boolean) {
 		setNsPublic(checked);
 	}
+
 	return (
 		<div className='create-namespace'>
 			<Title level={5} style={{ textAlign: "center" }}>
@@ -40,7 +58,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
 
 				<Form.Item
 					label='Description'
-					name='description'
+					name='desc'
 					rules={[
 						{
 							required: true,
@@ -66,7 +84,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
 						</Form.Item>
 						<Form.Item
 							label='currency'
-							name='currency'
+							name='ecr20Token'
 							labelCol={{ span: 8 }}
 							wrapperCol={{ span: 16 }}
 							rules={[
@@ -80,13 +98,27 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
 						</Form.Item>
 						<Form.Item
 							label='unit'
-							name='unit'
+							name='price'
 							labelCol={{ span: 8 }}
 							wrapperCol={{ span: 16 }}
 							rules={[
 								{
 									required: true,
 									message: "Please input your unit!",
+								},
+							]}
+						>
+							<Input />
+						</Form.Item>
+                        <Form.Item
+							label='querys'
+							name='queryCount'
+							labelCol={{ span: 8 }}
+							wrapperCol={{ span: 16 }}
+							rules={[
+								{
+									required: true,
+									message: "Please input your query count",
 								},
 							]}
 						>
