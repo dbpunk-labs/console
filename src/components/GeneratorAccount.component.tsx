@@ -1,10 +1,11 @@
 import React, { memo, useMemo, useState } from "react";
 import { Button, Form, Input, Space, Typography, Upload } from "antd";
 import { useRecoilState } from "recoil";
-import { ownerAddressAtom, secretAtom } from "../state";
+
+import { ownerAddressAtom, publicKeyAtom, secretAtom } from "../state";
 import { useNavigate } from "react-router-dom";
 import { useAsyncFn } from "react-use";
-import { getAddress, generateKey } from "db3js";
+import { getAddress, getATestStaticKeypair } from "db3js";
 import { encode, decode } from "uint8-to-base64";
 import "../styles/account.scss";
 
@@ -13,12 +14,14 @@ const { Text } = Typography;
 const GeneratorAccount: React.FC<{}> = memo((props) => {
 	const [ownerAddress, setOwnerAddress] = useRecoilState(ownerAddressAtom);
 	const [secret, setSecret] = useRecoilState(secretAtom);
+	const [publickey, setPublicKey] = useRecoilState(publicKeyAtom);
 	const [visibleAccountInfo, setVisibleAccountInfo] = useState(false);
 	const [generatorAccountState, generatorAccountFn] = useAsyncFn(async () => {
-		const [sk, pk] = await generateKey();
+		const [sk, pk] = await getATestStaticKeypair();
 		const address = await getAddress(pk);
 		setOwnerAddress(address);
 		setSecret(encode(sk));
+		setPublicKey(encode(pk));
 		setVisibleAccountInfo(true);
 	}, []);
 	function downloadAccount() {
@@ -88,6 +91,9 @@ const GeneratorAccount: React.FC<{}> = memo((props) => {
 						</Form.Item>
 						<Form.Item label='Secret'>
 							<Text copyable>{secret}</Text>
+						</Form.Item>
+						<Form.Item label='Public Key'>
+							<Text copyable>{publickey}</Text>
 						</Form.Item>
 						<Form.Item wrapperCol={{ offset: 4, span: 20 }}>
 							<Text type='secondary'>

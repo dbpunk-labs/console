@@ -27,3 +27,8 @@ export const secretAtom = atom<string | null>({
 	key: "secretAtom",
 	default: null,
 });
+
+export const publicKeyAtom = atom<string | null>({
+	key: "publicKeyAtom",
+	default: null,
+});
