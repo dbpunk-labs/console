@@ -1,0 +1,11 @@
+.generator-account {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.account-container {
+		background: #ffffff;
+		border: 1px solid #000000;
+		border-radius: 20px;
+		padding: 70px 180px;
+	}
+}
