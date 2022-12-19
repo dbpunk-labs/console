@@ -1,0 +1,12 @@
+{
+    "keys": [
+        {
+            "name": "user1",
+            "keyType": "string"
+        },
+        {
+            "name": "address1",
+            "keyType": "string"
+        }
+    ]
+}
