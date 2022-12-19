@@ -1,18 +1,18 @@
 import React, { useMemo, memo, useCallback, useEffect, useState } from 'react'
-import { Button, Form, Input, Modal, Tabs, Typography } from 'antd'
-import { DB3, sign, DocMetaManager, DocStore, DocKeyType } from 'db3js'
-import { PlusCircleOutlined } from '@ant-design/icons'
+import { Button, Form, Input, List, Modal, Select, Tabs, Typography } from 'antd'
+import { DB3, sign, DocMetaManager, DocStore, DocKeyType, genPrimaryKey } from 'db3js/src/index'
+import { ArrowRightOutlined, PlusCircleOutlined, RightOutlined } from '@ant-design/icons'
 import { useRecoilValue } from 'recoil'
 import '../styles/namespaceDetail.scss'
 import { useParams } from 'react-router-dom'
 import { useAsyncFn } from 'react-use'
 import { publicKeyAtom, secretAtom } from '../state'
-import { decode } from 'uint8-to-base64'
-import { Buffer as BufferPolyfill } from 'buffer'
+import { encode, decode } from 'uint8-to-base64'
 import CodeView from './Codeview.component'
-globalThis.Buffer = BufferPolyfill
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
-const { Title } = Typography
+const { Title, Text } = Typography
+const { Option } = Select
 
 const Collections: React.FC<{}> = memo((props) => {
     const sk = useRecoilValue(secretAtom)
@@ -60,8 +60,12 @@ const Collections: React.FC<{}> = memo((props) => {
             return [await sign(data, decode(sk)), decode(pk)]
         }
         const doc_meta_mgr = new DocMetaManager(db3_instance)
-        const result = await doc_meta_mgr.get_all_doc_metas(ns_name, _sign)
-        return result
+        try {
+            const result = await doc_meta_mgr.get_all_doc_metas(ns_name, _sign)
+            return result
+        } catch (error) {
+            console.error(error)
+        }
     }, [db3_instance, ns_name])
     const [docs, getDocs] = useAsyncFn(
         async (doc_index) => {
@@ -70,7 +74,7 @@ const Collections: React.FC<{}> = memo((props) => {
             }
             const doc_store = new DocStore(db3_instance)
             const docs = await doc_store.queryAllDocs(ns_name, doc_index, _sign)
-            return docs
+            return docs.map((item) => ({ key: encode(genPrimaryKey(doc_index, item)), data: item }))
         },
         [db3_instance, ns_name]
     )
@@ -81,7 +85,8 @@ const Collections: React.FC<{}> = memo((props) => {
         },
         [docs]
     )
-
+    const [activeDocName, setActiveDocName] = useState<string>()
+    const [activeDocKey, setActiveDocKey] = useState<string>()
     const [docsInfo, setDocsInfo] = useState('')
     const [insertDocHash, insertDocs] = useAsyncFn(
         async (name, doc_content) => {
@@ -117,34 +122,66 @@ const Collections: React.FC<{}> = memo((props) => {
         <>
             <div className="ns-collections">
                 <div className="collections-panel">
-                    <div onClick={() => setVisible(true)} style={{ cursor: 'pointer' }}>
-                        <PlusCircleOutlined style={{ marginRight: 7 }} />
-                        Add Collection
-                    </div>
-                    {docMetasState.value?.map((item) => (
-                        <div
-                            key={item.doc_name}
-                            onClick={() => {
-                                getDocs(item.index)
-                            }}
-                            style={{ padding: '7px 10px', cursor: 'pointer' }}
-                        >
-                            {item.doc_name}
-                        </div>
-                    ))}
+                    <List
+                        header={
+                            <div
+                                onClick={() => setVisible(true)}
+                                style={{ cursor: 'pointer', padding: 7 }}
+                            >
+                                <PlusCircleOutlined style={{ marginRight: 7 }} />
+                                Add Collection
+                            </div>
+                        }
+                        loading={docs.loading}
+                        dataSource={docMetasState.value}
+                        renderItem={(item) => (
+                            <List.Item
+                                key={item.doc_name}
+                                className={item.doc_name === activeDocName ? 'active' : ''}
+                                onClick={() => {
+                                    setActiveDocName(item.doc_name)
+                                    getDocs(item.index)
+                                }}
+                            >
+                                <Typography.Text mark></Typography.Text> {item.doc_name}
+                                <RightOutlined />
+                            </List.Item>
+                        )}
+                    />
                 </div>
                 <div className="docs-panel">
-                    <div onClick={() => setDocVisible(true)} style={{ cursor: 'pointer' }}>
-                        <PlusCircleOutlined style={{ marginRight: 7 }} />
-                        Add doc
-                    </div>
-                    {docs.value?.map((item) => (
-                        <div style={{ padding: '7px 10px', cursor: 'pointer' }}>
-                            {JSON.stringify(item)}
-                        </div>
-                    ))}
+                    <List
+                        header={
+                            <div
+                                onClick={() => setDocVisible(true)}
+                                style={{ cursor: 'pointer', padding: 7 }}
+                            >
+                                <PlusCircleOutlined style={{ marginRight: 7 }} />
+                                Add doc
+                            </div>
+                        }
+                        loading={docs.loading}
+                        dataSource={docs.value}
+                        renderItem={(item) => (
+                            <List.Item
+                                key={item.key}
+                                className={item.key === activeDocKey ? 'active' : ''}
+                                onClick={() => {
+                                    setActiveDocKey(item.key)
+                                    getDocByKey(item.key)
+                                }}
+                            >
+                                <Typography.Text mark></Typography.Text> {item.key}
+                                <RightOutlined />
+                            </List.Item>
+                        )}
+                    />
                 </div>
-                <div className="docs-detail">{doc.value && JSON.stringify(doc.value)}</div>
+                <div className="docs-detail">
+                    <SyntaxHighlighter language="json">
+                        {JSON.stringify(doc.value, null, '\t')}
+                    </SyntaxHighlighter>
+                </div>
             </div>
             <Modal
                 title="Add Collection"
@@ -202,7 +239,13 @@ const Collections: React.FC<{}> = memo((props) => {
                         name="name"
                         rules={[{ required: true, message: 'Please input your username!' }]}
                     >
-                        <Input />
+                        <Select style={{ width: '100%' }}>
+                            {docMetasState.value?.map((item) => (
+                                <Option key={item.doc_name} value={item.doc_name}>
+                                    {item.doc_name}
+                                </Option>
+                            ))}
+                        </Select>
                     </Form.Item>
 
                     <Form.Item

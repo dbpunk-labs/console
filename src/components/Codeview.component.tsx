@@ -8,17 +8,13 @@ import { useRecoilState } from 'recoil'
 import { publicKeyAtom, secretAtom } from '../state'
 import { decode } from 'uint8-to-base64'
 import { useAsync } from 'react-use'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
 const { Title, Text } = Typography
 const { Option } = Select
 
 const CodeView: React.FC<{}> = memo((props) => {
-    const [result, setResult] = useState<string>()
-    const console = {
-        log: function (value: Record<string, any>) {
-            setResult(JSON.stringify(value))
-        },
-    }
+    const [excuteResult, setExcuteResult] = useState<string>('')
     const { name: ns_name } = useParams()
     const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
     const doc_store = useMemo(() => new DocStore(db3_instance), [db3_instance])
@@ -40,7 +36,9 @@ const CodeView: React.FC<{}> = memo((props) => {
     const [docName, setDocName] = useState<string>()
     function runInsertDocCode() {
         const fn = new Function('db3_instance', 'doc_store', 'DocKeyType', '_sign', 'docName', code)
-        fn(db3_instance, doc_store, DocKeyType, _sign, docName)
+        fn(db3_instance, doc_store, DocKeyType, _sign, docName).then((data) => {
+            setExcuteResult(JSON.stringify(data, null, '\t'))
+        })
     }
     return (
         <div className="code-view">
@@ -54,7 +52,9 @@ const CodeView: React.FC<{}> = memo((props) => {
                         style={{ width: 300 }}
                     >
                         {docMetasState.value?.map((item) => (
-                            <Option value={item.doc_name}>{item.doc_name}</Option>
+                            <Option key={item.doc_name} value={item.doc_name}>
+                                {item.doc_name}
+                            </Option>
                         ))}
                     </Select>
                 </div>
@@ -81,7 +81,7 @@ const CodeView: React.FC<{}> = memo((props) => {
             <Button type="primary" onClick={runInsertDocCode}>
                 Run
             </Button>
-            <div>{result}</div>
+            <SyntaxHighlighter language="json">{excuteResult}</SyntaxHighlighter>
         </div>
     )
 })

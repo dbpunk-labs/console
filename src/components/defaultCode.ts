@@ -18,10 +18,10 @@ const transacion = {
     ts: 9527,
     amount: 10,
 };
-doc_store.insertDocs(
+return doc_store.insertDocs(
     doc_index,
     [transacion],
     _sign,
     1,
-).then(data => console.log(data))
+)
 `

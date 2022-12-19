@@ -7,14 +7,22 @@ import CreateNamespace from './components/CreateNamespace.component'
 import NamespaceDetail from './components/NamespaceDetail.component'
 
 import './App.scss'
+import { UserOutlined } from '@ant-design/icons'
+import { useRecoilValue } from 'recoil'
+import { ownerAddressAtom } from './state'
 
 const { Header, Content, Footer } = Layout
 
 function App() {
+    const ownerAddress = useRecoilValue(ownerAddressAtom)
     return (
         <Layout className="layout" style={{ height: '100%' }}>
             <Header className="header">
                 <div className="logo">DB3</div>
+                <div className="account">
+                    <UserOutlined />
+                    {ownerAddress}
+                </div>
             </Header>
             <Content className="container">
                 <Router>
