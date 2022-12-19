@@ -12,6 +12,7 @@
     "@ant-design/icons": "^4.8.0",
     "@deliberative/crypto": "^0.7.6",
     "antd": "^5.0.7",
+    "buffer": "^6.0.3",
     "db3js": "^0.1.8",
     "google-protobuf": "^3.21.2",
     "lodash": "^4.17.21",
