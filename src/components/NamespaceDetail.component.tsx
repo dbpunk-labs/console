@@ -120,7 +120,6 @@ const Collections: React.FC<{}> = memo((props) => {
                         <div
                             key={item.doc_name}
                             onClick={() => {
-                                setActiveCollectionName(item.doc_name)
                                 getDocs(item.index)
                             }}
                             style={{ padding: '7px 10px', cursor: 'pointer' }}
