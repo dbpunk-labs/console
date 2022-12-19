@@ -15,49 +15,48 @@ const NamespaceList: React.FC<{}> = memo((props) => {
     const sk = useRecoilValue(secretAtom)
     const pk = useRecoilValue(publicKeyAtom)
     const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
-    const [nsState, getNs] = useAsyncFn<() => Promise<[any]>>(async () => {
-        console.log(await getAddress(decode(pk)))
-        async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
+	const [nsState, getNs] = useAsyncFn<() => Promise<[any]>>(async () => {
+	    async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
             return [await sign(data, decode(sk)), decode(pk)]
-        }
+	    }
         const nsList = await db3_instance.getNsList(_sign)
         return nsList.nsListList
     }, [db3_instance, sk, pk])
-    useEffect(() => {
+	useEffect(() => {
         db3_instance && getNs()
     }, [db3_instance])
     const navigate = useNavigate()
-    return (
-        <>
+	return (
+		<>
             <Title level={5} style={{ textAlign: 'center' }}>
-                Personal Name Space Station
-            </Title>
-            <Divider></Divider>
+				Personal Name Space Station
+			</Title>
+			<Divider></Divider>
             <div className="namespace-list">
-                {nsState.value?.map((item) => (
+				{nsState.value?.map((item) => (
                     <Card
                         key={item.name}
                         title={`ns: ${item.name}`}
                         extra={<Link to={`/namespace/${item.name}`}>More</Link>}
                         style={{ width: 300 }}
                     >
-                        <p>{item.description}</p>
+						<p>{item.description}</p>
                         <div className="ns-meta-data">
-                            <Space>
-                                <span>
-                                    <DashboardOutlined /> {item.ts}
-                                </span>
-                            </Space>
-                        </div>
-                    </Card>
-                ))}
+							<Space>
+								<span>
+								<DashboardOutlined /> {item.ts}
+								</span>
+							</Space>
+						</div>
+					</Card>
+				))}
                 <Card title="Create Name New Name Space" style={{ width: 300 }}>
                     <p style={{ fontSize: 36 }} onClick={() => navigate('/namespace/post')}>
-                        <PlusOutlined />
-                    </p>
-                </Card>
-            </div>
-        </>
+						<PlusOutlined />
+					</p>
+				</Card>
+			</div>
+		</>
     )
 })
 export default NamespaceList
