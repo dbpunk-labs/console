@@ -17,7 +17,7 @@ const { Option } = Select
 const CodeView: React.FC<{}> = memo((props) => {
     const [excuteResult, setExcuteResult] = useState<string>('')
     const { name: ns_name } = useParams()
-    const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
+    const db3_instance = useMemo(() => new DB3(import.meta.env.VITE_GRPC_URL), [])
     const doc_store = useMemo(() => new DocStore(db3_instance), [db3_instance])
     const [code, setCode] = useState<string>()
     const [sk] = useRecoilState(secretAtom)
