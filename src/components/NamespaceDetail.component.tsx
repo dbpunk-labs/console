@@ -10,7 +10,8 @@ import { publicKeyAtom, secretAtom } from '../state'
 import { encode, decode } from 'uint8-to-base64'
 import CodeView from './Codeview.component'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-
+import { Buffer as BufferPolyfill } from 'buffer'
+globalThis.Buffer = BufferPolyfill;
 const { Title, Text } = Typography
 const { Option } = Select
 
