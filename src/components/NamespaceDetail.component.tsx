@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useMemo, memo, useCallback, useEffect, useState } from 'react'
 import { Button, Form, Input, List, Modal, Select, Tabs, Typography } from 'antd'
 import { DB3, sign, DocMetaManager, DocStore, DocKeyType, genPrimaryKey } from 'db3js/src/index'
@@ -17,11 +18,11 @@ const { Option } = Select
 const Collections: React.FC<{}> = memo((props) => {
     const sk = useRecoilValue(secretAtom)
     const pk = useRecoilValue(publicKeyAtom)
-    const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
+    const db3_instance = useMemo(() => new DB3(import.meta.env.VITE_GRPC_URL), [])
     const { name: ns_name } = useParams()
     const [visible, setVisible] = useState(false)
     const [docVisible, setDocVisible] = useState(false)
-    const [cname, addCollection] = useAsyncFn(
+    const [collection, addCollection] = useAsyncFn(
         async (collection_name, doc_index) => {
             async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
                 return [await sign(data, decode(sk)), decode(pk)]
@@ -45,7 +46,7 @@ const Collections: React.FC<{}> = memo((props) => {
             const doc_meta_mgr = new DocMetaManager(db3_instance)
             try {
                 const result = await doc_meta_mgr.create_doc_meta(new_doc_index, 'desc', _sign)
-                console.log(result)
+                await new Promise((r) => setTimeout(r, 2000))
             } catch (error) {
                 console.log(error)
             }
@@ -87,7 +88,6 @@ const Collections: React.FC<{}> = memo((props) => {
     )
     const [activeDocName, setActiveDocName] = useState<string>()
     const [activeDocKey, setActiveDocKey] = useState<string>()
-    const [docsInfo, setDocsInfo] = useState('')
     const [insertDocHash, insertDocs] = useAsyncFn(
         async (name, doc_content) => {
             async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
@@ -97,6 +97,8 @@ const Collections: React.FC<{}> = memo((props) => {
                 const doc_index = docMetasState.value?.find((item) => item.doc_name === name)?.index
                 const doc_store = new DocStore(db3_instance)
                 const hash = await doc_store.insertDocs(doc_index, [JSON.parse(doc_content)], _sign)
+                await new Promise((r) => setTimeout(r, 2000))
+                getDocs(doc_index)
                 setDocVisible(false)
                 return hash
             } catch (error) {
@@ -117,7 +119,7 @@ const Collections: React.FC<{}> = memo((props) => {
 
     useEffect(() => {
         getAllDocMetas()
-    }, [])
+    }, [collection.value])
     return (
         <>
             <div className="ns-collections">
@@ -214,7 +216,7 @@ const Collections: React.FC<{}> = memo((props) => {
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" loading={collection.loading}>
                             Submit
                         </Button>
                     </Form.Item>
@@ -257,7 +259,7 @@ const Collections: React.FC<{}> = memo((props) => {
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" loading={insertDocHash.loading}>
                             Submit
                         </Button>
                     </Form.Item>

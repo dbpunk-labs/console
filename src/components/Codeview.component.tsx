@@ -1,4 +1,5 @@
-import React, { memo, useMemo, useState } from 'react'
+// @ts-nocheck
+import React, { memo, useEffect, useMemo, useState } from 'react'
 import { Button, Select, Space, Typography } from 'antd'
 import { useParams } from 'react-router-dom'
 import Editor from '@monaco-editor/react'
@@ -18,7 +19,7 @@ const CodeView: React.FC<{}> = memo((props) => {
     const { name: ns_name } = useParams()
     const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
     const doc_store = useMemo(() => new DocStore(db3_instance), [db3_instance])
-    const [code, setCode] = useState<string>(defaultCode)
+    const [code, setCode] = useState<string>()
     const [sk] = useRecoilState(secretAtom)
     const [pk] = useRecoilState(publicKeyAtom)
     async function _sign(data: Uint8Array): Promise<[Uint8Array, Uint8Array]> {
@@ -36,10 +37,19 @@ const CodeView: React.FC<{}> = memo((props) => {
     const [docName, setDocName] = useState<string>()
     function runInsertDocCode() {
         const fn = new Function('db3_instance', 'doc_store', 'DocKeyType', '_sign', 'docName', code)
-        fn(db3_instance, doc_store, DocKeyType, _sign, docName).then((data) => {
+        fn(db3_instance, doc_store, DocKeyType, _sign, docName).then((data: any) => {
             setExcuteResult(JSON.stringify(data, null, '\t'))
         })
     }
+    useEffect(() => {
+        if (docMetasState.value && docName) {
+            setCode(
+                defaultCode(
+                    docMetasState.value.find((item: any) => item.doc_name === docName).index
+                )
+            )
+        }
+    }, [docMetasState.value, docName])
     return (
         <div className="code-view">
             <Space>
