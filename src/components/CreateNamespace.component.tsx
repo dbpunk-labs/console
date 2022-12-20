@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useAsyncFn } from 'react-use'
 import { useRecoilValue } from 'recoil'
 import React, { memo, useState, useMemo } from 'react'
@@ -12,7 +13,7 @@ const { Title } = Typography
 const CreateNamespace: React.FC<{}> = memo((props) => {
     const sk = useRecoilValue(secretAtom)
     const pk = useRecoilValue(publicKeyAtom)
-    const db3_instance = useMemo(() => new DB3('http://127.0.0.1:26659'), [])
+    const db3_instance = useMemo(() => new DB3(import.meta.env.VITE_GRPC_URL), [])
     const [nsPublic, setNsPublic] = useState<boolean>(false)
     const navigate = useNavigate()
     const [hash, createNamespace] = useAsyncFn(
@@ -22,6 +23,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
             }
             try {
                 const result = await db3_instance.createSimpleNs(values, _sign)
+                await new Promise((r) => setTimeout(r, 1500))
                 navigate('/namespace')
                 return result
             } catch (error) {
@@ -139,7 +141,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
                 )}
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" htmlType="submit" loading={hash.loading}>
                         Save
                     </Button>
                 </Form.Item>
