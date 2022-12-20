@@ -12,7 +12,6 @@ import { useRecoilValue } from 'recoil'
 import { ownerAddressAtom } from './state'
 
 const { Header, Content, Footer } = Layout
-
 function App() {
     const ownerAddress = useRecoilValue(ownerAddressAtom)
     return (
