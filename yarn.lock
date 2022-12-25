@@ -850,10 +850,10 @@ dayjs@^1.11.1:
   resolved "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
   integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
-db3js@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/db3js/-/db3js-0.2.0.tgz#625eeb3d497deae5c6c777f1953740c4d51b3de8"
-  integrity sha512-/rdipZ7lXJ3kCn0SMoM/E9H911i6Q78rDOjPGSvMQS0KcUTNI3CEdZzsPvMLI27ol3zmig4BxgXLNCfhSuiLaQ==
+db3js@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/db3js/-/db3js-0.2.1.tgz#b9858195505765aa3f53548fc3578a25007ab071"
+  integrity sha512-f0koENRkzBaj9t1kfKc4CSomfygJiPFP1RUQ6igKPmQHyj0aMiOyoQsNyfxU3FcRrv5uY+FVuHL5KfPkuZ3Zrw==
   dependencies:
     "@deliberative/crypto" "^0.6.18"
     "@ethersproject/keccak256" "^5.7.0"
