@@ -22,6 +22,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
                 return [await sign(data, decode(sk)), decode(pk)]
             }
             try {
+                console.log(values)
                 const result = await db3_instance.createSimpleNs(values, _sign)
                 await new Promise((r) => setTimeout(r, 1500))
                 navigate('/namespace')
@@ -97,7 +98,7 @@ const CreateNamespace: React.FC<{}> = memo((props) => {
                         </Form.Item>
                         <Form.Item
                             label="currency"
-                            name="ecr20Token"
+                            name="erc20Token"
                             labelCol={{ span: 8 }}
                             wrapperCol={{ span: 16 }}
                             rules={[

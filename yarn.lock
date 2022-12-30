@@ -499,6 +499,26 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@protobuf-ts/grpcweb-transport@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.npmjs.org/@protobuf-ts/grpcweb-transport/-/grpcweb-transport-2.8.2.tgz#7eb15e40aeb354ea8480030c86055dedcc7bdb1a"
+  integrity sha512-VG7132dOcH7t4C95EUiirzV2RTolBxIBWGxPFmnbKwHuR1lcSWDUbZZ1FIC1C/qip5jK4qcw5R76YZfV7gf8Pw==
+  dependencies:
+    "@protobuf-ts/runtime" "^2.8.2"
+    "@protobuf-ts/runtime-rpc" "^2.8.2"
+
+"@protobuf-ts/runtime-rpc@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.npmjs.org/@protobuf-ts/runtime-rpc/-/runtime-rpc-2.8.2.tgz#8af6d5eab44e2fc92cfe9a83a5c351b5f2fcdfbe"
+  integrity sha512-vum/Y7AXdUTWGFu7dke/jCSB9dV3Oo3iVPcce3j7KudpzzWarDkEGvXjKv3Y8zJPj5waToyxwBNSb7eo5Vw5WA==
+  dependencies:
+    "@protobuf-ts/runtime" "^2.8.2"
+
+"@protobuf-ts/runtime@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.npmjs.org/@protobuf-ts/runtime/-/runtime-2.8.2.tgz#5d5424a6ae7fb846c3f4d0f2dd6448db65bb69d6"
+  integrity sha512-PVxsH81y9kEbHldxxG/8Y3z2mTXWQytRl8zNS0mTPUjkEC+8GUX6gj6LsA8EFp25fAs9V0ruh+aNWmPccEI9MA==
+
 "@rc-component/mini-decimal@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npmmirror.com/@rc-component/mini-decimal/-/mini-decimal-1.0.1.tgz#e5dbc20a6a5b0e234d279bc71ce730ab865d3910"
@@ -850,17 +870,18 @@ dayjs@^1.11.1:
   resolved "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
   integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
-db3js@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/db3js/-/db3js-0.2.1.tgz#b9858195505765aa3f53548fc3578a25007ab071"
-  integrity sha512-f0koENRkzBaj9t1kfKc4CSomfygJiPFP1RUQ6igKPmQHyj0aMiOyoQsNyfxU3FcRrv5uY+FVuHL5KfPkuZ3Zrw==
+db3js@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.npmjs.org/db3js/-/db3js-0.2.3.tgz#7c0f54e9336fa8e52c9b62195a0ed65158731bea"
+  integrity sha512-x6DBy93Ft0mikXCGxwG8BMtN/F7MMwA0sL7r5p2+aiJJKh0xea6VU8ZxbeptLlSd3FDn7/OHR028PnH4MR1iOg==
   dependencies:
     "@deliberative/crypto" "^0.6.18"
     "@ethersproject/keccak256" "^5.7.0"
     "@noble/secp256k1" "^1.7.0"
+    "@protobuf-ts/grpcweb-transport" "^2.8.2"
+    "@protobuf-ts/runtime" "^2.8.2"
+    "@protobuf-ts/runtime-rpc" "^2.8.2"
     "@scure/bip39" "^1.1.0"
-    google-protobuf "^3.21.2"
-    grpc-web "^1.4.2"
     js-sha3 "^0.8.0"
     react "^18.2.0"
     react-dom "^18.2.0"
@@ -1026,16 +1047,6 @@ globals@^11.1.0:
   version "11.12.0"
   resolved "https://registry.npmmirror.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
-
-google-protobuf@^3.21.2:
-  version "3.21.2"
-  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.21.2.tgz#4580a2bea8bbb291ee579d1fefb14d6fa3070ea4"
-  integrity sha512-3MSOYFO5U9mPGikIYCzK0SaThypfGgS6bHqrUGXG3DPHCrb+txNqeEcns1W0lkGfk0rCyNXm7xB9rMxnCiZOoA==
-
-grpc-web@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/grpc-web/-/grpc-web-1.4.2.tgz#86995f76471ce6b2119106ec26f909b7b69e7d43"
-  integrity sha512-gUxWq42l5ldaRplcKb4Pw5O4XBONWZgz3vxIIXnfIeJj8Jc3wYiq2O4c9xzx/NGbbPEej4rhI62C9eTENwLGNw==
 
 hamt_plus@1.0.2:
   version "1.0.2"

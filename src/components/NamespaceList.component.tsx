@@ -21,7 +21,7 @@ const NamespaceList: React.FC<{}> = memo((props) => {
             return [await sign(data, decode(sk)), decode(pk)]
         }
         const nsList = await db3_instance.getNsList(_sign)
-        return nsList.nsListList
+        return nsList.nsList
     }, [db3_instance, sk, pk])
     useEffect(() => {
         db3_instance && getNs()
