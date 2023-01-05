@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil'
 import { ownerAddressAtom, publicKeyAtom, secretAtom } from '../state'
 import { useNavigate } from 'react-router-dom'
 import { useAsyncFn } from 'react-use'
-import { getAddress, generateKey } from 'db3js'
+import { getAddress, generateKey } from 'db3.js'
 import { encode, decode } from 'uint8-to-base64'
 import '../styles/account.scss'
 

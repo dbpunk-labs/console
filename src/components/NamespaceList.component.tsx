@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { memo, useEffect, useMemo } from 'react'
-import { DB3, sign, getATestStaticKeypair, getAddress } from 'db3js'
+import { DB3, sign, getATestStaticKeypair, getAddress } from 'db3.js'
 import { useRecoilValue } from 'recoil'
 import { publicKeyAtom, secretAtom } from '../state'
 import { useAsyncFn } from 'react-use'

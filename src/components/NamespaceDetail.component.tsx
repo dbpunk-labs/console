@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useMemo, memo, useCallback, useEffect, useState } from 'react'
 import { Button, Form, Input, List, Modal, Select, Tabs, Typography } from 'antd'
-import { DB3, sign, DocMetaManager, DocStore, DocKeyType, genPrimaryKey } from 'db3js'
+import { DB3, sign, DocMetaManager, DocStore, DocKeyType, genPrimaryKey } from 'db3.js'
 import { ArrowRightOutlined, PlusCircleOutlined, RightOutlined } from '@ant-design/icons'
 import { useRecoilValue } from 'recoil'
 import '../styles/namespaceDetail.scss'
