@@ -68,7 +68,7 @@
 	display: flex;
 	gap: 4px;
 	margin-left: 867px;
-	width: 89px;
+	width: 183px;
 }
 
 .home-container .group-341 {
@@ -4239,4 +4239,26 @@
 
 .btn {
 	cursor: pointer;
+}
+.overlap-group12 {
+	position: relative;
+	top: -7px;
+	align-items: flex-start;
+	background-image: url(/static/img/bg@2x.png);
+	background-size: 100% 100%;
+	display: flex;
+	gap: 4px;
+	height: 46px;
+	justify-content: flex-end;
+	min-width: 94px;
+	padding: 7px 19.0px;
+}
+
+.icon-star {
+	height: 18px;
+	margin-top: 2px;
+	width: 18px;
+}
+.stars {
+	line-height: 25px;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
@@ -9,6 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
 	const [playing, setPlaying] = useState(false);
 	const [openVideo, setOpenVideo] = useState(false);
+	const [stars, setStars] = useState(null);
+	useEffect(() => {
+		fetch('https://api.github.com/repos/dbpunk-labs/db3').then(res => {
+			return res.json()
+		}).then(res => {
+			setStars(res.stargazers_count)
+		})
+	}, [])
 
 	function paly() {
 		setPlaying(true)
@@ -43,7 +51,12 @@ export default function Home() {
 							<div className='group-342'>
 								<div className='group-341'></div>
 								<div className='github'>Github</div>
+								<div className="overlap-group12">
+									<img className="icon-star" src="/static/img/star@2x.png" alt="icon-star" />
+									<div className="stars">{stars}</div>
+								</div>
 							</div>
+							
 						</div>
 						<div className='overlap-group10'>
 							<div className='overlap-group9'>
@@ -198,6 +211,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
+					
 					<div className='overlap-group11'>
 						<div className='vs-firebase'>
 							<div className='group-349'>
