@@ -111,6 +111,14 @@
 	position: absolute;
 	top: 0;
 	width: 939px;
+	cursor: pointer;
+	display: none;
+}
+.home-container .play-video {
+	left: 750px;
+	position: absolute;
+	top: 70px;
+	cursor: pointer;
 }
 
 .home-container .ellipse-18 {
@@ -419,7 +427,7 @@
 	line-height: 20.2px;
 	position: absolute;
 	top: 166px;
-	width: 647px;
+	width: 547px;
 }
 
 .home-container .db3-network-is-an-op {
@@ -432,7 +440,7 @@
 	line-height: normal;
 	position: absolute;
 	top: 74px;
-	width: 1094px;
+	width: 730px;
 }
 
 .home-container .span0-2 {
@@ -440,7 +448,7 @@
 	font-weight: 700;
 }
 
-.home-container .span {
+.home-container .desc {
 	color: var(--black-3);
 	font-size: 28px;
 	font-weight: 500;
@@ -461,10 +469,11 @@
 	border-radius: 32px;
 	display: flex;
 	height: 64px;
-	left: 955px;
+	left: 437px;
 	position: absolute;
 	top: 168px;
 	width: 64px;
+	cursor: pointer;
 }
 
 .home-container .polygon-1 {
@@ -519,6 +528,7 @@
 	margin-top: 40px;
 	position: relative;
 	width: 1470px;
+
 }
 
 .home-container .vs-firebase {
@@ -4225,4 +4235,8 @@
 	position: absolute;
 	text-align: center;
 	white-space: nowrap;
+}
+
+.btn {
+	cursor: pointer;
 }
