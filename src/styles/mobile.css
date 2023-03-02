@@ -1,0 +1,413 @@
+@media screen and (max-width: 440px) {
+	.home-container {
+		width: 100%;
+	}
+	.header-left {
+		padding-left: 20px;
+	}
+	.home-container .overlap-group10 {
+		width: 100%;
+		height: auto;
+	}
+	.db3-desc {
+		flex-direction: column;
+	}
+	.home-container .db3-network-is-an-op {
+		width: 100%;
+		padding: 0 24px;
+	}
+	.home-container .db3-network-is-a-dec {
+		width: 100%;
+		padding: 0 24px;
+		margin-top: 13px;
+	}
+	.db3-process {
+		display: flex;
+	}
+	/* .process-img {
+		width: 100%;
+	} */
+	.db3-process img {
+		margin-top: 20px;
+		width: 390px;
+	}
+	.hero {
+		padding: 47px;
+	}
+	.db3-info {
+		padding: 0;
+	}
+	.home-container .db3-title {
+		font-size: 28px;
+	}
+	.home-container .desc {
+		font-size: 18px;
+	}
+	.db3-network-is-a-dec {
+		font-size: 14px;
+	}
+	.header-btn {
+		padding-left: 24px;
+	}
+	.process-img {
+		display: none;
+	}
+	.home-container .overlap-group11 {
+		width: auto;
+		height: auto;
+		margin-top: 10px;
+	}
+	.home-container .group-container {
+		width: auto;
+		height: 396px;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: flex-start;
+		background-image: url(/static/img/rectangle-m.png);
+		padding: 70px 0 50px 20px;
+	}
+	.home-container .group-62 {
+		width: 150px;
+	}
+	.home-container .group-61 {
+		position: relative;
+		top: -10px;
+		width: 150px;
+	}
+
+	.home-container .group-60 {
+		width: 150px;
+	}
+	.home-container .group-59 {
+		width: 150px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.decentralized-database {
+		/* display: none; */
+	}
+	.save-data-on-chain {
+		display: none;
+	}
+	.quickly-integrate-database-access {
+		display: none;
+	}
+	.manage-data-access {
+		display: none;
+	}
+	.track-data-read-and-write {
+		display: none;
+	}
+	.home-container .logo-browser {
+		display: flex;
+		margin: 0;
+	}
+	.home-container .browser-on-chain {
+		margin-left: 0;
+	}
+	.home-container .vs-firebase {
+		width: auto;
+	}
+	.home-container .overlap-group-2 {
+		width: auto;
+		align-items: flex-start;
+		height: auto;
+	}
+	.comparison {
+		display: none;
+	}
+	.boost-your-decentral {
+		width: auto;
+	}
+	.the-way-you-use-db3 {
+		width: auto;
+	}
+	.home-container .overlap-group1-1 {
+		width: auto;
+	}
+	.home-container .how-to-change-d-app-structure-with-db3 {
+		width: auto;
+		font-size: 20px;
+	}
+	.home-container .make-apps-more-decen {
+		width: auto;
+	}
+	.home-container .group-40 {
+		flex-direction: column;
+	}
+	.vs-before {
+		display: flex;
+		justify-content: center;
+	}
+	.vs-after {
+		display: flex;
+		justify-content: center;
+	}
+	.vs-before img {
+		width: 368px;
+	}
+	.vs-after img {
+		width: 368px;
+	}
+	.overlap-title .instead-of-a-central {
+		display: none;
+	}
+	.need-to-rely-on-a-ce {
+		display: none;
+	}
+	.home-container .before {
+		font-size: 14px;
+		margin-left: 0;
+	}
+	.home-container .after {
+		font-size: 14px;
+		margin-left: 0;
+	}
+	.home-container .boost-your-decentral {
+		width: auto;
+		font-size: 18px;
+		white-space: pre-wrap;
+	}
+	.home-container .vs-firebase {
+		top: 200px;
+		height: auto;
+	}
+	.group-349 {
+		padding: 10px;
+	}
+	.home-container .the-way-you-use-db3 {
+		width: auto;
+		white-space: pre-wrap;
+	}
+	.comparison-m {
+		max-width: 390px;
+	}
+	.buttonsecondary-2 {
+		display: none;
+	}
+	.home-container .group-40 {
+		margin-top: 20px;
+	}
+
+	.home-container .group-350 {
+		width: auto;
+		min-width: 390px;
+	}
+	.home-container .group-351 {
+		margin-top: 20px;
+		height: auto;
+	}
+	.home-container .image-26 {
+		width: 300px;
+	}
+	.db3-code {
+		display: none;
+	}
+	.home-container .how {
+		padding: 80px 10px 0 10px;
+		width: auto;
+		margin-top: 400px;
+	}
+	.home-container .view-1 {
+		height: auto;
+	}
+	.home-container .database {
+		width: auto;
+		margin-top: 20px;
+		padding: 10px 10px 20px 10px;
+		gap: 20px;
+	}
+	.home-container .group-347 {
+		width: auto;
+	}
+	.home-container .db3-is-a-decentraliz {
+		width: auto;
+		height: auto;
+	}
+	.home-container .view-container {
+		align-content: flex-start;
+		gap: 10px;
+		/* height: 750px; */
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.home-container .view {
+		padding: 5px;
+		width: 170px;
+		min-height: auto;
+	}
+	.home-container .mutable {
+		/* width: 66px;
+		height: 66px;
+		background-size: 66px; */
+	}
+	.inter-medium-black-20px {
+		font-size: 16px;
+	}
+	.the-data-stored-on-t {
+		display: none;
+	}
+	.home-container .mutable-document-1 {
+		margin-right: 0;
+		min-width: none;
+	}
+	.home-container .products {
+		width: auto;
+	}
+	.home-container .group-345 {
+		width: auto;
+	}
+	.home-container .group-343 {
+		width: auto;
+	}
+	.overlap-group-7 {
+		display: none;
+	}
+	.home-container .overlap-group4-2 {
+		width: auto;
+	}
+	.home-container .overlap-group1-4 {
+		width: auto;
+	}
+	.home-container .overlap-group-7 {
+		width: auto;
+	}
+	.home-container .group-21 {
+		width: auto;
+	}
+	.home-container .group-23 {
+		width: auto;
+	}
+	.rectangle-1,
+	.image-10,
+	.rectangle-8,
+	.image-11,
+	.image-7,
+	.image-12,
+	.rectangle-32,
+	.rectangle-33,
+	.overlap-group3-2,
+	.overlap-group2-3,
+	.overlap-group-7 {
+		display: none;
+		font-size: 0;
+	}
+	.home-container .all-db3js-sd-ks-are-c,
+	.data-management-for-developers {
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+
+	.home-container .all-db3js-sd-ks-are-c,
+	.dms-group,
+	.home-container .flex-col,
+	.home-container .track-the-read-and-w,
+	.home-container .inter-semi-bold-black-20px,
+	.home-container .group-15,
+	.db3js-desc {
+		width: 250px;
+	}
+	.browser-group p,
+	.dms-group p,
+	.db3js-desc p {
+		margin-bottom: 15px;
+	}
+	.home-container .inter-semi-bold-black-20px {
+		font-size: 16px;
+	}
+
+	.home-container .multi-chain-supportable {
+		width: auto;
+		margin-top: 120px;
+	}
+	.home-container .group-345 {
+		display: flex;
+		margin-left: 150px;
+	}
+	.inter-semi-bold-black-26px {
+		font-size: 18px;
+	}
+	.home-container .what-we-are-building-for-you {
+		margin-bottom: 20px;
+		margin-top: 40px;
+	}
+	.track-the-read-and-w {
+		margin-bottom: 10px;
+	}
+	.home-container .products {
+		margin-top: 0;
+	}
+	.db3-btn {
+		font-size: 12px;
+	}
+
+	.home-container .as-a-data-storage-ne {
+		width: auto;
+		margin-left: 40px;
+	}
+	.home-container .image-container {
+		align-content: flex-start;
+		width: auto;
+		padding-bottom: 20px;
+	}
+	.home-container .overlap-group7-1 {
+		padding-top: 20px;
+	}
+	.home-container .image-container img {
+		margin-top: 30px;
+	}
+	.home-container .demo {
+		width: 100%;
+		margin-top: 150px;
+	}
+	.home-container .projects-developed-b {
+		width: 100%;
+	}
+	.home-container .card-container {
+		width: auto;
+	}
+	.home-container .footer {
+		margin-top: 10px;
+	}
+	.footer-right {
+		display: none;
+	}
+	.home-container .footer {
+		height: auto;
+		padding: 20px 30px;
+		width: 100%;
+	}
+	.home-container .group-17 {
+		gap: 20px;
+		min-width: none;
+	}
+	.footer-group {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.footer-left {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		display: flex;
+		flex: 1;
+	}
+	.logo-f {
+		width: 80px;
+	}
+	.home-container .copyright-db3-team {
+		font-size: 12px;
+	}
+	.home-container .start-build {
+		font-size: 14px;
+	}
+	.header-right,
+	.build,
+	.community {
+		display: none;
+	}
+}
